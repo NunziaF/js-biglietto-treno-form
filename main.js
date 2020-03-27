@@ -1,3 +1,8 @@
+// Creo una versione dell’EX del biglietto del treno ricca con un bell’output dinamico;
+// Usare eventi sui 2 bottoni principali, e sviluppare le logiche che sottendono;
+// “Genera” mi calcolerà il prezzo del biglietto a partire dai dati inseriti negli input, e mi draà l’output in pagina, nel modo migliore possibile;
+// “Annulla” mi fa tornare allo stato iniziale con output pulito (o nascosto) e campi puliti
+
 var valnome, valkm, valeta;
 
 var nomeU = document.getElementById("nome");
@@ -17,8 +22,6 @@ calcolaButton.addEventListener("click",
     valKm = kmU.value;
     valEta = etaU.value;
 
-    document.getElementById('nome_out').innerHTML = valNome;
-
     //calcolo biglietto per età
 
     var costo = valKm * 0.21;
@@ -31,7 +34,22 @@ calcolaButton.addEventListener("click",
       costo
     }
 
-    document.getElementById('costo').innerHTML = costo.toFixed(2) + " €";
+    document.getElementById('costo').innerHTML = "Gentile " + valNome + " il costo del suo biglietto è " + costo.toFixed(2) + " €";
+  }
+);
 
+var buttonAzzera = document.getElementById('azzera');
+
+buttonAzzera.addEventListener("click",
+
+  function(){
+    // sul click cancello gli input
+    document.getElementById('nome').innerHTML = "";
+    document.getElementById('km').innerHTML = "";
+    document.getElementById('eta').innerHTML = "";
+    document.getElementById('costo').innerHTML = "";
+    document.getElementById('nome').value = "";
+    document.getElementById('km').value = "";
+    document.getElementById('eta').value = "";
   }
 );
